@@ -26,6 +26,7 @@ bool isprime(int x){
     return true;
 }
 void dfs(int x,int start){
+    //if(x-1+n-start+1<k) return;
     if(x>k){//要求位置已满
     int sum=0;
         for(int i=1;i<=k;i++){
@@ -37,6 +38,7 @@ void dfs(int x,int start){
         return;
     }
     for(int i=start;i<=n;i++){
+        if(x+n-start+1<k) return;
         arr[x]=q[i];
         dfs(x+1,i+1);//下一个位置上的数
         arr[x]=0;//回溯
